@@ -22,8 +22,8 @@ if [[ -n "$changed_java_files" ]]
 then
     if ! java -jar "$JAR_FILE" --replace --set-exit-if-changed $changed_java_files
     then
-        echo "Reformatting java files!"
+        echo "true"
     fi
 else
-    echo "No changes!"
+    echo "false"
 fi
