@@ -17,7 +17,8 @@ job_01:
     - |- 
         if [[ "$iPUSH" == "true" ]]; then
             git add -A && git commit -m "[skip ci] Java files Changed by Java Google Fomatter" && git push
-        fi  ....
+        fi  
+....
 ```
 
 
