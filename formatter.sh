@@ -17,7 +17,7 @@ then
     mv "$JAR_DOWNLOAD_FILE" "$JAR_FILE"
 fi
 
-changed_java_files=$( git diff @~..@ --name-only | grep -Ei "\.java$" || true)
+changed_java_files=$( git diff --name-only --diff-filter=ACMR $(git describe --tags --abbrev=0)  $CI_BUILD_REF_NAME | grep -Ei "\.java$" || true)
 if [[ -n "$changed_java_files" ]]
 then
     if ! java -jar "$JAR_FILE" --replace --set-exit-if-changed $changed_java_files
